@@ -1,0 +1,3527 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="متجر إلكتروني احترافي">
+
+    <title>نوفا | متجر إلكتروني</title>
+
+
+    <!-- =====================================================
+         GOOGLE FONTS
+    ====================================================== -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+    <!-- =====================================================
+         CSS
+    ====================================================== -->
+
+    <style>
+
+    /* =====================================================
+       RESET
+    ====================================================== */
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    html{
+        scroll-behavior:smooth;
+    }
+
+    body{
+        font-family:"Cairo",sans-serif;
+        background:#ffffff;
+        color:#111827;
+        line-height:1.7;
+    }
+
+    body.menu-open{
+        overflow:hidden;
+    }
+
+    a{
+        text-decoration:none;
+        color:inherit;
+    }
+
+    button,
+    input{
+        font-family:inherit;
+    }
+
+    button{
+        cursor:pointer;
+    }
+
+    img{
+        width:100%;
+        display:block;
+    }
+
+    .container{
+        width:92%;
+        max-width:1240px;
+        margin:auto;
+    }
+
+
+    /* =====================================================
+       VARIABLES
+    ====================================================== */
+
+    :root{
+
+        --primary:#111827;
+
+        --secondary:#6366f1;
+
+        --secondary-dark:#4f46e5;
+
+        --accent:#f97316;
+
+        --success:#10b981;
+
+        --danger:#ef4444;
+
+        --background:#ffffff;
+
+        --light:#f8fafc;
+
+        --border:#e5e7eb;
+
+        --muted:#64748b;
+
+        --radius:22px;
+
+        --shadow:
+        0 15px 45px rgba(15,23,42,.08);
+
+    }
+
+
+    /* =====================================================
+       TOP BAR
+    ====================================================== */
+
+    .top-bar{
+
+        background:#111827;
+
+        color:#ffffff;
+
+        height:38px;
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        font-size:11px;
+
+    }
+
+    .top-bar-content{
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        gap:10px;
+
+    }
+
+    .top-bar i{
+        color:#fbbf24;
+    }
+
+
+    /* =====================================================
+       HEADER
+    ====================================================== */
+
+    .header{
+
+        position:absolute;
+
+        top:38px;
+
+        right:0;
+
+        left:0;
+
+        z-index:1000;
+
+        color:white;
+
+    }
+
+    .nav{
+
+        height:84px;
+
+        display:flex;
+
+        align-items:center;
+
+        justify-content:space-between;
+
+        border-bottom:
+        1px solid rgba(255,255,255,.18);
+
+    }
+
+
+    /* LOGO */
+
+    .logo{
+
+        display:flex;
+
+        align-items:center;
+
+        gap:11px;
+
+        color:white;
+
+        font-size:23px;
+
+        font-weight:800;
+
+    }
+
+    .logo-icon{
+
+        width:44px;
+
+        height:44px;
+
+        display:grid;
+
+        place-items:center;
+
+        border-radius:14px;
+
+        background:
+        linear-gradient(
+            135deg,
+            #6366f1,
+            #8b5cf6
+        );
+
+        box-shadow:
+        0 10px 25px
+        rgba(99,102,241,.25);
+
+    }
+
+
+    /* NAVIGATION */
+
+    .nav-links{
+
+        display:flex;
+
+        align-items:center;
+
+        gap:32px;
+
+    }
+
+    .nav-links a{
+
+        color:white;
+
+        font-size:13px;
+
+        font-weight:600;
+
+        opacity:.86;
+
+        transition:.3s;
+
+    }
+
+    .nav-links a:hover{
+
+        opacity:1;
+
+        color:#c7d2fe;
+
+    }
+
+
+    /* ACTIONS */
+
+    .nav-actions{
+
+        display:flex;
+
+        align-items:center;
+
+        gap:8px;
+
+    }
+
+    .nav-button{
+
+        position:relative;
+
+        width:42px;
+
+        height:42px;
+
+        border-radius:13px;
+
+        border:
+        1px solid
+        rgba(255,255,255,.22);
+
+        background:
+        rgba(255,255,255,.10);
+
+        backdrop-filter:blur(10px);
+
+        color:white;
+
+        display:grid;
+
+        place-items:center;
+
+        transition:.3s;
+
+    }
+
+    .nav-button:hover{
+
+        background:
+        rgba(255,255,255,.20);
+
+        transform:translateY(-2px);
+
+    }
+
+    .cart-count{
+
+        position:absolute;
+
+        top:-5px;
+
+        left:-5px;
+
+        width:19px;
+
+        height:19px;
+
+        border-radius:50%;
+
+        background:var(--accent);
+
+        color:white;
+
+        font-size:9px;
+
+        display:grid;
+
+        place-items:center;
+
+        border:2px solid white;
+
+    }
+
+    .mobile-menu{
+
+        display:none;
+
+    }
+
+
+    /* =====================================================
+       HERO
+    ====================================================== */
+
+    .hero{
+
+        min-height:780px;
+
+        position:relative;
+
+        display:flex;
+
+        align-items:center;
+
+        overflow:hidden;
+
+        color:white;
+
+        background-image:
+
+        linear-gradient(
+            90deg,
+            rgba(2,6,23,.82),
+            rgba(2,6,23,.45),
+            rgba(2,6,23,.60)
+        ),
+
+        url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=2400&q=90");
+
+        background-size:cover;
+
+        background-position:center;
+
+    }
+
+
+    /* HERO OVERLAY */
+
+    .hero::before{
+
+        content:"";
+
+        position:absolute;
+
+        inset:0;
+
+        background:
+
+        radial-gradient(
+            circle at 20% 45%,
+            rgba(99,102,241,.30),
+            transparent 35%
+        );
+
+        pointer-events:none;
+
+    }
+
+
+    .hero-container{
+
+        position:relative;
+
+        z-index:2;
+
+        width:92%;
+
+        max-width:1240px;
+
+        margin:auto;
+
+    }
+
+
+    .hero-content{
+
+        max-width:690px;
+
+    }
+
+
+    .hero-badge{
+
+        display:inline-flex;
+
+        align-items:center;
+
+        gap:8px;
+
+        padding:8px 15px;
+
+        border-radius:50px;
+
+        background:
+        rgba(255,255,255,.10);
+
+        border:
+        1px solid
+        rgba(255,255,255,.20);
+
+        backdrop-filter:blur(12px);
+
+        font-size:12px;
+
+        margin-bottom:22px;
+
+    }
+
+    .hero-badge i{
+
+        color:#fbbf24;
+
+    }
+
+
+    .hero h1{
+
+        font-size:
+        clamp(44px,6vw,78px);
+
+        line-height:1.15;
+
+        font-weight:800;
+
+        letter-spacing:-2px;
+
+        margin-bottom:22px;
+
+    }
+
+    .hero h1 span{
+
+        color:#a5b4fc;
+
+    }
+
+
+    .hero-description{
+
+        max-width:600px;
+
+        color:
+        rgba(255,255,255,.82);
+
+        font-size:16px;
+
+        line-height:2;
+
+        margin-bottom:30px;
+
+    }
+
+
+    /* HERO BUTTONS */
+
+    .hero-buttons{
+
+        display:flex;
+
+        align-items:center;
+
+        gap:12px;
+
+        flex-wrap:wrap;
+
+    }
+
+    .btn{
+
+        min-height:52px;
+
+        padding:0 24px;
+
+        border-radius:14px;
+
+        display:inline-flex;
+
+        align-items:center;
+
+        justify-content:center;
+
+        gap:9px;
+
+        border:0;
+
+        font-size:13px;
+
+        font-weight:700;
+
+        transition:.3s;
+
+    }
+
+    .btn-primary{
+
+        background:white;
+
+        color:#111827;
+
+        box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.18);
+
+    }
+
+    .btn-primary:hover{
+
+        transform:translateY(-3px);
+
+        box-shadow:
+        0 20px 40px
+        rgba(0,0,0,.25);
+
+    }
+
+    .btn-outline{
+
+        color:white;
+
+        border:
+        1px solid
+        rgba(255,255,255,.35);
+
+        background:
+        rgba(255,255,255,.08);
+
+        backdrop-filter:blur(10px);
+
+    }
+
+    .btn-outline:hover{
+
+        background:
+        rgba(255,255,255,.18);
+
+        transform:translateY(-3px);
+
+    }
+
+
+    /* HERO STATS */
+
+    .hero-stats{
+
+        margin-top:55px;
+
+        display:flex;
+
+        align-items:center;
+
+        gap:38px;
+
+    }
+
+    .hero-stat{
+
+        display:flex;
+
+        align-items:center;
+
+        gap:10px;
+
+    }
+
+    .hero-stat-icon{
+
+        width:43px;
+
+        height:43px;
+
+        border-radius:13px;
+
+        background:
+        rgba(255,255,255,.10);
+
+        border:
+        1px solid
+        rgba(255,255,255,.15);
+
+        display:grid;
+
+        place-items:center;
+
+    }
+
+    .hero-stat strong{
+
+        display:block;
+
+        font-size:15px;
+
+    }
+
+    .hero-stat span{
+
+        display:block;
+
+        color:
+        rgba(255,255,255,.62);
+
+        font-size:10px;
+
+    }
+
+
+    /* =====================================================
+       FLOATING CARD
+    ====================================================== */
+
+    .floating-card{
+
+        position:absolute;
+
+        left:7%;
+
+        bottom:100px;
+
+        z-index:5;
+
+        display:flex;
+
+        align-items:center;
+
+        gap:12px;
+
+        padding:14px 18px;
+
+        border-radius:18px;
+
+        color:#111827;
+
+        background:
+        rgba(255,255,255,.95);
+
+        box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.20);
+
+        animation:
+        floating 3s ease-in-out infinite;
+
+    }
+
+    .floating-icon{
+
+        width:45px;
+
+        height:45px;
+
+        border-radius:14px;
+
+        background:#ecfdf5;
+
+        color:#10b981;
+
+        display:grid;
+
+        place-items:center;
+
+    }
+
+    .floating-card strong{
+
+        display:block;
+
+        font-size:13px;
+
+    }
+
+    .floating-card small{
+
+        color:#64748b;
+
+        font-size:10px;
+
+    }
+
+    @keyframes floating{
+
+        0%,100%{
+            transform:translateY(0);
+        }
+
+        50%{
+            transform:translateY(-8px);
+        }
+
+    }
+
+
+    /* =====================================================
+       SECTION
+    ====================================================== */
+
+    section:not(.hero){
+
+        padding:90px 0;
+
+    }
+
+    .section-head{
+
+        text-align:center;
+
+        margin-bottom:45px;
+
+    }
+
+    .section-head span{
+
+        color:var(--secondary);
+
+        font-size:12px;
+
+        font-weight:800;
+
+    }
+
+    .section-head h2{
+
+        font-size:34px;
+
+        line-height:1.4;
+
+        margin-top:4px;
+
+    }
+
+    .section-head p{
+
+        color:var(--muted);
+
+        max-width:570px;
+
+        margin:8px auto 0;
+
+        font-size:13px;
+
+    }
+
+
+    /* =====================================================
+       CATEGORIES
+    ====================================================== */
+
+    .categories{
+
+        display:grid;
+
+        grid-template-columns:
+        repeat(4,1fr);
+
+        gap:18px;
+
+    }
+
+    .category{
+
+        height:240px;
+
+        position:relative;
+
+        overflow:hidden;
+
+        border-radius:22px;
+
+        cursor:pointer;
+
+    }
+
+    .category img{
+
+        height:100%;
+
+        object-fit:cover;
+
+        transition:.5s;
+
+    }
+
+    .category:hover img{
+
+        transform:scale(1.08);
+
+    }
+
+    .category-overlay{
+
+        position:absolute;
+
+        inset:0;
+
+        display:flex;
+
+        align-items:flex-end;
+
+        padding:20px;
+
+        color:white;
+
+        background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,.75),
+            transparent
+        );
+
+    }
+
+    .category h3{
+
+        font-size:18px;
+
+    }
+
+    .category small{
+
+        font-size:10px;
+
+        color:#e2e8f0;
+
+    }
+
+
+    /* =====================================================
+       PRODUCTS
+    ====================================================== */
+
+    .products-section{
+
+        background:#f8fafc;
+
+    }
+
+    .products{
+
+        display:grid;
+
+        grid-template-columns:
+        repeat(4,1fr);
+
+        gap:20px;
+
+    }
+
+    .product{
+
+        overflow:hidden;
+
+        background:white;
+
+        border:
+        1px solid
+        var(--border);
+
+        border-radius:22px;
+
+        transition:.35s;
+
+    }
+
+    .product:hover{
+
+        transform:translateY(-7px);
+
+        box-shadow:var(--shadow);
+
+    }
+
+
+    .product-image{
+
+        height:270px;
+
+        position:relative;
+
+        overflow:hidden;
+
+        background:#f8fafc;
+
+    }
+
+    .product-image img{
+
+        height:100%;
+
+        object-fit:cover;
+
+        transition:.4s;
+
+    }
+
+    .product:hover
+    .product-image img{
+
+        transform:scale(1.07);
+
+    }
+
+
+    .discount{
+
+        position:absolute;
+
+        top:12px;
+
+        right:12px;
+
+        z-index:2;
+
+        background:#ef4444;
+
+        color:white;
+
+        padding:5px 9px;
+
+        border-radius:8px;
+
+        font-size:10px;
+
+        font-weight:700;
+
+    }
+
+
+    .favorite{
+
+        position:absolute;
+
+        top:12px;
+
+        left:12px;
+
+        z-index:2;
+
+        width:36px;
+
+        height:36px;
+
+        border:0;
+
+        border-radius:50%;
+
+        background:
+        rgba(255,255,255,.92);
+
+        color:#475569;
+
+        transition:.3s;
+
+    }
+
+    .favorite.active{
+
+        color:#ef4444;
+
+    }
+
+
+    .product-info{
+
+        padding:17px;
+
+    }
+
+    .rating{
+
+        color:#f59e0b;
+
+        font-size:11px;
+
+        margin-bottom:4px;
+
+    }
+
+    .product h3{
+
+        font-size:14px;
+
+        margin-bottom:7px;
+
+    }
+
+    .price{
+
+        display:flex;
+
+        align-items:center;
+
+        gap:8px;
+
+        margin-bottom:14px;
+
+    }
+
+    .price strong{
+
+        font-size:18px;
+
+    }
+
+    .old-price{
+
+        color:#94a3b8;
+
+        text-decoration:line-through;
+
+        font-size:11px;
+
+    }
+
+    .add-cart{
+
+        width:100%;
+
+        min-height:42px;
+
+        border:0;
+
+        border-radius:12px;
+
+        background:#f1f5f9;
+
+        color:#111827;
+
+        font-size:12px;
+
+        font-weight:700;
+
+        transition:.3s;
+
+    }
+
+    .add-cart:hover{
+
+        background:#111827;
+
+        color:white;
+
+    }
+
+
+    /* =====================================================
+       OFFER
+    ====================================================== */
+
+    .offer{
+
+        min-height:370px;
+
+        position:relative;
+
+        overflow:hidden;
+
+        border-radius:30px;
+
+        display:flex;
+
+        align-items:center;
+
+        padding:55px;
+
+        color:white;
+
+        background-image:
+
+        linear-gradient(
+            90deg,
+            rgba(17,24,39,.95),
+            rgba(49,46,129,.75)
+        ),
+
+        url("https://images.unsplash.com/photo-1607083206968-13611e3d76db?auto=format&fit=crop&w=1800&q=90");
+
+        background-size:cover;
+
+        background-position:center;
+
+    }
+
+    .offer-content{
+
+        max-width:550px;
+
+    }
+
+    .offer small{
+
+        color:#c7d2fe;
+
+        font-weight:700;
+
+        font-size:12px;
+
+    }
+
+    .offer h2{
+
+        font-size:42px;
+
+        line-height:1.3;
+
+        margin:8px 0 14px;
+
+    }
+
+    .offer h2 strong{
+
+        color:#a5b4fc;
+
+    }
+
+    .offer p{
+
+        color:#cbd5e1;
+
+        font-size:13px;
+
+        margin-bottom:23px;
+
+    }
+
+
+    /* =====================================================
+       FEATURES
+    ====================================================== */
+
+    .features-section{
+
+        background:#f8fafc;
+
+    }
+
+    .features{
+
+        display:grid;
+
+        grid-template-columns:
+        repeat(4,1fr);
+
+        gap:20px;
+
+    }
+
+    .feature{
+
+        padding:28px 20px;
+
+        background:white;
+
+        border:
+        1px solid
+        var(--border);
+
+        border-radius:20px;
+
+        text-align:center;
+
+    }
+
+    .feature-icon{
+
+        width:58px;
+
+        height:58px;
+
+        margin:0 auto 15px;
+
+        border-radius:17px;
+
+        background:#eef2ff;
+
+        color:var(--secondary);
+
+        display:grid;
+
+        place-items:center;
+
+        font-size:20px;
+
+    }
+
+    .feature h3{
+
+        font-size:15px;
+
+        margin-bottom:6px;
+
+    }
+
+    .feature p{
+
+        color:var(--muted);
+
+        font-size:11px;
+
+    }
+
+
+    /* =====================================================
+       TESTIMONIALS
+    ====================================================== */
+
+    .testimonials{
+
+        display:grid;
+
+        grid-template-columns:
+        repeat(3,1fr);
+
+        gap:20px;
+
+    }
+
+    .testimonial{
+
+        padding:25px;
+
+        border:
+        1px solid
+        var(--border);
+
+        border-radius:22px;
+
+        background:white;
+
+    }
+
+    .stars{
+
+        color:#f59e0b;
+
+        font-size:12px;
+
+        margin-bottom:12px;
+
+    }
+
+    .testimonial p{
+
+        color:#475569;
+
+        font-size:13px;
+
+        line-height:1.9;
+
+        margin-bottom:20px;
+
+    }
+
+    .customer{
+
+        display:flex;
+
+        align-items:center;
+
+        gap:10px;
+
+    }
+
+    .avatar{
+
+        width:42px;
+
+        height:42px;
+
+        border-radius:50%;
+
+        overflow:hidden;
+
+    }
+
+    .avatar img{
+
+        height:100%;
+
+        object-fit:cover;
+
+    }
+
+    .customer strong{
+
+        display:block;
+
+        font-size:12px;
+
+    }
+
+    .customer small{
+
+        color:#94a3b8;
+
+        font-size:9px;
+
+    }
+
+
+    /* =====================================================
+       NEWSLETTER
+    ====================================================== */
+
+    .newsletter{
+
+        padding:55px;
+
+        border-radius:30px;
+
+        background:#111827;
+
+        color:white;
+
+        text-align:center;
+
+    }
+
+    .newsletter h2{
+
+        font-size:30px;
+
+        margin-bottom:7px;
+
+    }
+
+    .newsletter p{
+
+        color:#94a3b8;
+
+        font-size:12px;
+
+        margin-bottom:23px;
+
+    }
+
+    .newsletter-form{
+
+        max-width:530px;
+
+        margin:auto;
+
+        padding:6px;
+
+        display:flex;
+
+        gap:6px;
+
+        background:white;
+
+        border-radius:15px;
+
+    }
+
+    .newsletter-form input{
+
+        flex:1;
+
+        border:0;
+
+        outline:0;
+
+        padding:10px 13px;
+
+        font-size:12px;
+
+    }
+
+    .newsletter-form button{
+
+        border:0;
+
+        border-radius:11px;
+
+        padding:10px 20px;
+
+        background:var(--secondary);
+
+        color:white;
+
+        font-weight:700;
+
+    }
+
+
+    /* =====================================================
+       FOOTER
+    ====================================================== */
+
+    footer{
+
+        background:#0b1120;
+
+        color:white;
+
+        padding:65px 0 25px;
+
+    }
+
+    .footer-grid{
+
+        display:grid;
+
+        grid-template-columns:
+        1.5fr 1fr 1fr 1fr;
+
+        gap:40px;
+
+    }
+
+    .footer-about p{
+
+        max-width:300px;
+
+        color:#94a3b8;
+
+        font-size:11px;
+
+        margin-top:15px;
+
+    }
+
+    .footer h3{
+
+        font-size:14px;
+
+        margin-bottom:15px;
+
+    }
+
+    .footer-links{
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:8px;
+
+    }
+
+    .footer-links a{
+
+        color:#94a3b8;
+
+        font-size:11px;
+
+        transition:.3s;
+
+    }
+
+    .footer-links a:hover{
+
+        color:white;
+
+    }
+
+    .socials{
+
+        display:flex;
+
+        gap:7px;
+
+        margin-top:18px;
+
+    }
+
+    .socials a{
+
+        width:35px;
+
+        height:35px;
+
+        border-radius:10px;
+
+        background:#1e293b;
+
+        display:grid;
+
+        place-items:center;
+
+        font-size:12px;
+
+        transition:.3s;
+
+    }
+
+    .socials a:hover{
+
+        background:#6366f1;
+
+        transform:translateY(-3px);
+
+    }
+
+    .copyright{
+
+        border-top:
+        1px solid
+        #1e293b;
+
+        margin-top:45px;
+
+        padding-top:20px;
+
+        color:#64748b;
+
+        text-align:center;
+
+        font-size:10px;
+
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+    ====================================================== */
+
+    .mobile-panel{
+
+        display:none;
+
+        position:fixed;
+
+        top:0;
+
+        right:0;
+
+        bottom:0;
+
+        width:82%;
+
+        max-width:350px;
+
+        z-index:2000;
+
+        padding:90px 25px 30px;
+
+        background:#111827;
+
+        color:white;
+
+        box-shadow:
+        -20px 0 50px
+        rgba(0,0,0,.25);
+
+    }
+
+    .mobile-panel.active{
+
+        display:block;
+
+    }
+
+    .mobile-panel a{
+
+        display:block;
+
+        padding:15px 0;
+
+        border-bottom:
+        1px solid
+        rgba(255,255,255,.1);
+
+        font-size:14px;
+
+    }
+
+    .mobile-close{
+
+        position:absolute;
+
+        top:25px;
+
+        left:20px;
+
+        width:40px;
+
+        height:40px;
+
+        border:0;
+
+        border-radius:12px;
+
+        background:#1e293b;
+
+        color:white;
+
+    }
+
+    .mobile-overlay{
+
+        display:none;
+
+        position:fixed;
+
+        inset:0;
+
+        z-index:1900;
+
+        background:rgba(0,0,0,.5);
+
+        backdrop-filter:blur(3px);
+
+    }
+
+    .mobile-overlay.active{
+
+        display:block;
+
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ====================================================== */
+
+    @media(max-width:1000px){
+
+        .nav-links{
+            display:none;
+        }
+
+        .mobile-menu{
+            display:grid;
+        }
+
+        .categories,
+        .products{
+
+            grid-template-columns:
+            repeat(2,1fr);
+
+        }
+
+        .features{
+
+            grid-template-columns:
+            repeat(2,1fr);
+
+        }
+
+        .footer-grid{
+
+            grid-template-columns:
+            repeat(2,1fr);
+
+        }
+
+        .hero{
+
+            min-height:720px;
+
+        }
+
+    }
+
+
+    @media(max-width:600px){
+
+        .container{
+
+            width:90%;
+
+        }
+
+        .top-bar{
+
+            font-size:9px;
+
+        }
+
+        .header{
+
+            top:38px;
+
+        }
+
+        .nav{
+
+            height:72px;
+
+        }
+
+        .logo{
+
+            font-size:19px;
+
+        }
+
+        .logo-icon{
+
+            width:38px;
+
+            height:38px;
+
+        }
+
+        .nav-button{
+
+            width:38px;
+
+            height:38px;
+
+        }
+
+        .nav-actions
+        .nav-button:nth-child(1){
+
+            display:none;
+
+        }
+
+        .hero{
+
+            min-height:730px;
+
+            padding-top:90px;
+
+            background-position:
+            60% center;
+
+        }
+
+        .hero-content{
+
+            text-align:center;
+
+        }
+
+        .hero h1{
+
+            font-size:43px;
+
+            letter-spacing:-1px;
+
+        }
+
+        .hero-description{
+
+            font-size:13px;
+
+        }
+
+        .hero-buttons{
+
+            flex-direction:column;
+
+        }
+
+        .hero-buttons .btn{
+
+            width:100%;
+
+        }
+
+        .hero-stats{
+
+            justify-content:center;
+
+            gap:15px;
+
+            margin-top:40px;
+
+        }
+
+        .hero-stat{
+
+            flex-direction:column;
+
+            text-align:center;
+
+        }
+
+        .hero-stat strong{
+
+            font-size:12px;
+
+        }
+
+        .hero-stat span{
+
+            font-size:9px;
+
+        }
+
+        .floating-card{
+
+            display:none;
+
+        }
+
+        section:not(.hero){
+
+            padding:65px 0;
+
+        }
+
+        .section-head h2{
+
+            font-size:27px;
+
+        }
+
+        .categories,
+        .products,
+        .features,
+        .testimonials{
+
+            grid-template-columns:1fr;
+
+        }
+
+        .category{
+
+            height:230px;
+
+        }
+
+        .product-image{
+
+            height:320px;
+
+        }
+
+        .offer{
+
+            padding:30px;
+
+            min-height:360px;
+
+        }
+
+        .offer h2{
+
+            font-size:31px;
+
+        }
+
+        .newsletter{
+
+            padding:38px 20px;
+
+        }
+
+        .newsletter-form{
+
+            flex-direction:column;
+
+            background:transparent;
+
+        }
+
+        .newsletter-form input,
+        .newsletter-form button{
+
+            width:100%;
+
+            min-height:45px;
+
+            border-radius:11px;
+
+        }
+
+        .footer-grid{
+
+            grid-template-columns:1fr;
+
+            gap:30px;
+
+        }
+
+    }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     TOP BAR
+====================================================== -->
+
+<div class="top-bar">
+
+    <div class="top-bar-content">
+
+        <i class="fa-solid fa-truck-fast"></i>
+
+        شحن مجاني للطلبات التي تزيد عن 100$
+
+        <span>•</span>
+
+        عروض حصرية لفترة محدودة
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header class="header">
+
+    <div class="container nav">
+
+
+        <!-- LOGO -->
+
+        <a href="#" class="logo">
+
+            <div class="logo-icon">
+
+                <i class="fa-solid fa-bag-shopping"></i>
+
+            </div>
+
+            نوفا
+
+        </a>
+
+
+        <!-- DESKTOP MENU -->
+
+        <nav class="nav-links">
+
+            <a href="#home">
+                الرئيسية
+            </a>
+
+            <a href="#categories">
+                التصنيفات
+            </a>
+
+            <a href="#products">
+                المنتجات
+            </a>
+
+            <a href="#offers">
+                العروض
+            </a>
+
+            <a href="#reviews">
+                آراء العملاء
+            </a>
+
+        </nav>
+
+
+        <!-- ACTIONS -->
+
+        <div class="nav-actions">
+
+            <button class="nav-button">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </button>
+
+
+            <button class="nav-button">
+
+                <i class="fa-regular fa-user"></i>
+
+            </button>
+
+
+            <button class="nav-button">
+
+                <i class="fa-solid fa-heart"></i>
+
+            </button>
+
+
+            <button class="nav-button cart-button">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <span class="cart-count">
+                    0
+                </span>
+
+            </button>
+
+
+            <button
+                class="nav-button mobile-menu"
+                id="openMenu">
+
+                <i class="fa-solid fa-bars"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<section
+    class="hero"
+    id="home">
+
+
+    <div class="hero-container">
+
+
+        <div class="hero-content">
+
+
+            <div class="hero-badge">
+
+                <i class="fa-solid fa-sparkles"></i>
+
+                المجموعة الجديدة وصلت
+
+            </div>
+
+
+            <h1>
+
+                تسوق بأسلوب
+
+                <span>
+                    مختلف.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                اكتشف مجموعة مختارة بعناية من المنتجات العصرية
+                بجودة عالية وتصاميم مميزة وأسعار تناسبك.
+                تجربة تسوق سهلة، سريعة وآمنة من مكان واحد.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+
+                <a
+                    href="#products"
+                    class="btn btn-primary">
+
+                    تسوق الآن
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                </a>
+
+
+                <a
+                    href="#categories"
+                    class="btn btn-outline">
+
+                    اكتشف المجموعة
+
+                    <i class="fa-solid fa-grid-2"></i>
+
+                </a>
+
+
+            </div>
+
+
+            <!-- HERO STATS -->
+
+            <div class="hero-stats">
+
+
+                <div class="hero-stat">
+
+                    <div class="hero-stat-icon">
+
+                        <i class="fa-solid fa-box-open"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            +500
+                        </strong>
+
+                        <span>
+                            منتج
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-stat">
+
+                    <div class="hero-stat-icon">
+
+                        <i class="fa-solid fa-users"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            +10K
+                        </strong>
+
+                        <span>
+                            عميل سعيد
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-stat">
+
+                    <div class="hero-stat-icon">
+
+                        <i class="fa-solid fa-star"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            4.9/5
+                        </strong>
+
+                        <span>
+                            تقييم
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- FLOATING DELIVERY CARD -->
+
+    <div class="floating-card">
+
+        <div class="floating-icon">
+
+            <i class="fa-solid fa-truck-fast"></i>
+
+        </div>
+
+        <div>
+
+            <strong>
+                شحن سريع وآمن
+            </strong>
+
+            <small>
+                توصيل حتى باب منزلك
+            </small>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     CATEGORIES
+====================================================== -->
+
+<section id="categories">
+
+    <div class="container">
+
+
+        <div class="section-head">
+
+            <span>
+                تصفح المتجر
+            </span>
+
+            <h2>
+                اختر ما يناسبك
+            </h2>
+
+            <p>
+                اكتشف مجموعة متنوعة من المنتجات والتصنيفات
+                المختارة بعناية.
+            </p>
+
+        </div>
+
+
+        <div class="categories">
+
+
+            <!-- CATEGORY 1 -->
+
+            <a href="#" class="category">
+
+                <img
+                    src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85"
+                    alt="ساعات">
+
+                <div class="category-overlay">
+
+                    <div>
+
+                        <h3>
+                            الساعات
+                        </h3>
+
+                        <small>
+                            أكثر من 120 منتج
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- CATEGORY 2 -->
+
+            <a href="#" class="category">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85"
+                    alt="أحذية">
+
+                <div class="category-overlay">
+
+                    <div>
+
+                        <h3>
+                            الأحذية
+                        </h3>
+
+                        <small>
+                            أكثر من 80 منتج
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- CATEGORY 3 -->
+
+            <a href="#" class="category">
+
+                <img
+                    src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=900&q=85"
+                    alt="الأزياء">
+
+                <div class="category-overlay">
+
+                    <div>
+
+                        <h3>
+                            الأزياء
+                        </h3>
+
+                        <small>
+                            أكثر من 200 منتج
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- CATEGORY 4 -->
+
+            <a href="#" class="category">
+
+                <img
+                    src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85"
+                    alt="الإكسسوارات">
+
+                <div class="category-overlay">
+
+                    <div>
+
+                        <h3>
+                            الإكسسوارات
+                        </h3>
+
+                        <small>
+                            أكثر من 100 منتج
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRODUCTS
+====================================================== -->
+
+<section
+    class="products-section"
+    id="products">
+
+
+    <div class="container">
+
+
+        <div class="section-head">
+
+            <span>
+                منتجاتنا
+            </span>
+
+            <h2>
+                الأكثر مبيعًا
+            </h2>
+
+            <p>
+                منتجات يفضلها عملاؤنا وتم اختيارها بعناية.
+            </p>
+
+        </div>
+
+
+        <div class="products">
+
+
+            <!-- PRODUCT 1 -->
+
+            <article class="product">
+
+                <div class="product-image">
+
+                    <span class="discount">
+                        خصم 20%
+                    </span>
+
+                    <button class="favorite">
+
+                        <i class="fa-regular fa-heart"></i>
+
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85"
+                        alt="ساعة">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <div class="rating">
+                        ★★★★★
+                    </div>
+
+                    <h3>
+                        ساعة كلاسيكية فاخرة
+                    </h3>
+
+                    <div class="price">
+
+                        <strong>
+                            79$
+                        </strong>
+
+                        <span class="old-price">
+                            99$
+                        </span>
+
+                    </div>
+
+                    <button class="add-cart">
+
+                        <i class="fa-solid fa-cart-plus"></i>
+
+                        إضافة إلى السلة
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUCT 2 -->
+
+            <article class="product">
+
+                <div class="product-image">
+
+                    <span class="discount">
+                        خصم 15%
+                    </span>
+
+                    <button class="favorite">
+
+                        <i class="fa-regular fa-heart"></i>
+
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85"
+                        alt="حذاء">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <div class="rating">
+                        ★★★★★
+                    </div>
+
+                    <h3>
+                        حذاء رياضي عصري
+                    </h3>
+
+                    <div class="price">
+
+                        <strong>
+                            65$
+                        </strong>
+
+                        <span class="old-price">
+                            76$
+                        </span>
+
+                    </div>
+
+                    <button class="add-cart">
+
+                        <i class="fa-solid fa-cart-plus"></i>
+
+                        إضافة إلى السلة
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUCT 3 -->
+
+            <article class="product">
+
+                <div class="product-image">
+
+                    <button class="favorite">
+
+                        <i class="fa-regular fa-heart"></i>
+
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=900&q=85"
+                        alt="ملابس">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <div class="rating">
+                        ★★★★☆
+                    </div>
+
+                    <h3>
+                        مجموعة أزياء أنيقة
+                    </h3>
+
+                    <div class="price">
+
+                        <strong>
+                            89$
+                        </strong>
+
+                    </div>
+
+                    <button class="add-cart">
+
+                        <i class="fa-solid fa-cart-plus"></i>
+
+                        إضافة إلى السلة
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PRODUCT 4 -->
+
+            <article class="product">
+
+                <div class="product-image">
+
+                    <span class="discount">
+                        خصم 30%
+                    </span>
+
+                    <button class="favorite">
+
+                        <i class="fa-regular fa-heart"></i>
+
+                    </button>
+
+                    <img
+                        src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85"
+                        alt="إكسسوارات">
+
+                </div>
+
+
+                <div class="product-info">
+
+                    <div class="rating">
+                        ★★★★★
+                    </div>
+
+                    <h3>
+                        إكسسوار فاخر
+                    </h3>
+
+                    <div class="price">
+
+                        <strong>
+                            39$
+                        </strong>
+
+                        <span class="old-price">
+                            55$
+                        </span>
+
+                    </div>
+
+                    <button class="add-cart">
+
+                        <i class="fa-solid fa-cart-plus"></i>
+
+                        إضافة إلى السلة
+
+                    </button>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     OFFER
+====================================================== -->
+
+<section id="offers">
+
+    <div class="container">
+
+        <div class="offer">
+
+
+            <div class="offer-content">
+
+                <small>
+                    عرض خاص لفترة محدودة
+                </small>
+
+                <h2>
+
+                    خصم يصل إلى
+
+                    <strong>
+                        50%
+                    </strong>
+
+                </h2>
+
+                <p>
+
+                    لا تفوت عروضنا الحصرية على مجموعة
+                    مختارة من المنتجات. اطلب الآن قبل انتهاء العرض.
+
+                </p>
+
+                <a
+                    href="#products"
+                    class="btn btn-primary">
+
+                    تسوق العرض
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FEATURES
+====================================================== -->
+
+<section class="features-section">
+
+    <div class="container">
+
+
+        <div class="section-head">
+
+            <span>
+                لماذا نوفا؟
+            </span>
+
+            <h2>
+                تجربة تسوق مختلفة
+            </h2>
+
+        </div>
+
+
+        <div class="features">
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+
+                    <i class="fa-solid fa-truck-fast"></i>
+
+                </div>
+
+                <h3>
+                    شحن سريع
+                </h3>
+
+                <p>
+                    توصيل سريع وآمن حتى باب منزلك.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                </div>
+
+                <h3>
+                    دفع آمن
+                </h3>
+
+                <p>
+                    نحافظ على أمان بياناتك وعمليات الدفع.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+
+                    <i class="fa-solid fa-medal"></i>
+
+                </div>
+
+                <h3>
+                    جودة مضمونة
+                </h3>
+
+                <p>
+                    منتجات مختارة بعناية وبجودة عالية.
+                </p>
+
+            </div>
+
+
+            <div class="feature">
+
+                <div class="feature-icon">
+
+                    <i class="fa-solid fa-headset"></i>
+
+                </div>
+
+                <h3>
+                    دعم العملاء
+                </h3>
+
+                <p>
+                    فريق خدمة العملاء جاهز لمساعدتك.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     REVIEWS
+====================================================== -->
+
+<section id="reviews">
+
+    <div class="container">
+
+
+        <div class="section-head">
+
+            <span>
+                آراء العملاء
+            </span>
+
+            <h2>
+                ماذا يقول عملاؤنا؟
+            </h2>
+
+            <p>
+                تجارب بعض العملاء بعد التسوق من متجرنا.
+            </p>
+
+        </div>
+
+
+        <div class="testimonials">
+
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+
+                    تجربة ممتازة جدًا، المنتج وصلني بسرعة
+                    وكان مطابقًا للصور والوصف. بالتأكيد سأطلب مرة أخرى.
+
+                </p>
+
+                <div class="customer">
+
+                    <div class="avatar">
+
+                        <img
+                            src="https://i.pravatar.cc/150?img=12"
+                            alt="عميل">
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            محمد أحمد
+                        </strong>
+
+                        <small>
+                            عميل موثوق
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+
+                    الموقع جميل وسهل جدًا في الاستخدام،
+                    والطلب وصلني في الموعد المحدد. خدمة رائعة.
+
+                </p>
+
+                <div class="customer">
+
+                    <div class="avatar">
+
+                        <img
+                            src="https://i.pravatar.cc/150?img=32"
+                            alt="عميلة">
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            سارة علي
+                        </strong>
+
+                        <small>
+                            عميلة موثوقة
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="testimonial">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <p>
+
+                    أكثر شيء أعجبني هو جودة المنتجات
+                    وسرعة الرد على الاستفسارات. تجربة رائعة.
+
+                </p>
+
+                <div class="customer">
+
+                    <div class="avatar">
+
+                        <img
+                            src="https://i.pravatar.cc/150?img=15"
+                            alt="عميل">
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            خالد عبدالله
+                        </strong>
+
+                        <small>
+                            عميل موثوق
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     NEWSLETTER
+====================================================== -->
+
+<section>
+
+    <div class="container">
+
+        <div class="newsletter">
+
+
+            <h2>
+                كن أول من يعرف عروضنا
+            </h2>
+
+            <p>
+                اشترك واحصل على آخر المنتجات والعروض الحصرية.
+            </p>
+
+
+            <form
+                class="newsletter-form"
+                id="newsletterForm">
+
+
+                <input
+                    type="email"
+                    placeholder="أدخل بريدك الإلكتروني"
+                    required>
+
+
+                <button type="submit">
+
+                    اشتراك
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+    <div class="container">
+
+
+        <div class="footer-grid">
+
+
+            <!-- ABOUT -->
+
+            <div class="footer-about">
+
+                <a href="#" class="logo">
+
+                    <div class="logo-icon">
+
+                        <i class="fa-solid fa-bag-shopping"></i>
+
+                    </div>
+
+                    نوفا
+
+                </a>
+
+
+                <p>
+
+                    متجر إلكتروني عصري يوفر لك تجربة
+                    تسوق سهلة وسريعة وآمنة.
+
+                </p>
+
+
+                <div class="socials">
+
+                    <a href="#">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fa-brands fa-x-twitter"></i>
+
+                    </a>
+
+                    <a href="#">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SHOP -->
+
+            <div class="footer">
+
+                <h3>
+                    المتجر
+                </h3>
+
+                <div class="footer-links">
+
+                    <a href="#">
+                        جميع المنتجات
+                    </a>
+
+                    <a href="#">
+                        العروض
+                    </a>
+
+                    <a href="#">
+                        الأكثر مبيعًا
+                    </a>
+
+                    <a href="#">
+                        المنتجات الجديدة
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- INFO -->
+
+            <div class="footer">
+
+                <h3>
+                    معلومات
+                </h3>
+
+                <div class="footer-links">
+
+                    <a href="#">
+                        من نحن
+                    </a>
+
+                    <a href="#">
+                        سياسة الخصوصية
+                    </a>
+
+                    <a href="#">
+                        الشروط والأحكام
+                    </a>
+
+                    <a href="#">
+                        سياسة الاسترجاع
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CONTACT -->
+
+            <div class="footer">
+
+                <h3>
+                    تواصل معنا
+                </h3>
+
+                <div class="footer-links">
+
+                    <a href="#">
+                        <i class="fa-solid fa-phone"></i>
+                        +967 700 000 000
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-solid fa-envelope"></i>
+                        info@nova-store.com
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-solid fa-location-dot"></i>
+                        اليمن
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 نوفا — جميع الحقوق محفوظة
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     MOBILE MENU
+====================================================== -->
+
+<div
+    class="mobile-overlay"
+    id="mobileOverlay">
+</div>
+
+
+<div
+    class="mobile-panel"
+    id="mobilePanel">
+
+
+    <button
+        class="mobile-close"
+        id="closeMenu">
+
+        <i class="fa-solid fa-xmark"></i>
+
+    </button>
+
+
+    <a href="#home">
+        الرئيسية
+    </a>
+
+    <a href="#categories">
+        التصنيفات
+    </a>
+
+    <a href="#products">
+        المنتجات
+    </a>
+
+    <a href="#offers">
+        العروض
+    </a>
+
+    <a href="#reviews">
+        آراء العملاء
+    </a>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+let cartCount = 0;
+
+const cartNumber =
+document.querySelector(".cart-count");
+
+const cartButtons =
+document.querySelectorAll(".add-cart");
+
+
+cartButtons.forEach(button => {
+
+    button.addEventListener("click",function(){
+
+        cartCount++;
+
+        cartNumber.textContent =
+        cartCount;
+
+
+        const oldText =
+        this.innerHTML;
+
+
+        this.innerHTML =
+        '<i class="fa-solid fa-check"></i> تمت الإضافة';
+
+
+        this.style.background =
+        "#111827";
+
+
+        this.style.color =
+        "#ffffff";
+
+
+        setTimeout(() => {
+
+            this.innerHTML =
+            oldText;
+
+            this.style.background =
+            "";
+
+            this.style.color =
+            "";
+
+        },1300);
+
+    });
+
+});
+
+
+
+/* =====================================================
+   FAVORITES
+===================================================== */
+
+const favoriteButtons =
+document.querySelectorAll(".favorite");
+
+
+favoriteButtons.forEach(button => {
+
+    button.addEventListener("click",function(){
+
+        this.classList.toggle("active");
+
+
+        const icon =
+        this.querySelector("i");
+
+
+        if(this.classList.contains("active")){
+
+            icon.classList.remove(
+                "fa-regular"
+            );
+
+            icon.classList.add(
+                "fa-solid"
+            );
+
+        }else{
+
+            icon.classList.remove(
+                "fa-solid"
+            );
+
+            icon.classList.add(
+                "fa-regular"
+            );
+
+        }
+
+    });
+
+});
+
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+const openMenu =
+document.getElementById("openMenu");
+
+const closeMenu =
+document.getElementById("closeMenu");
+
+const mobilePanel =
+document.getElementById("mobilePanel");
+
+const mobileOverlay =
+document.getElementById("mobileOverlay");
+
+
+openMenu.addEventListener("click",()=>{
+
+    mobilePanel.classList.add("active");
+
+    mobileOverlay.classList.add("active");
+
+    document.body.classList.add("menu-open");
+
+});
+
+
+function closeMobileMenu(){
+
+    mobilePanel.classList.remove(
+        "active"
+    );
+
+    mobileOverlay.classList.remove(
+        "active"
+    );
+
+    document.body.classList.remove(
+        "menu-open"
+    );
+
+}
+
+
+closeMenu.addEventListener(
+    "click",
+    closeMobileMenu
+);
+
+
+mobileOverlay.addEventListener(
+    "click",
+    closeMobileMenu
+);
+
+
+document
+.querySelectorAll(".mobile-panel a")
+.forEach(link => {
+
+    link.addEventListener(
+        "click",
+        closeMobileMenu
+    );
+
+});
+
+
+
+/* =====================================================
+   NEWSLETTER
+===================================================== */
+
+const newsletterForm =
+document.getElementById("newsletterForm");
+
+
+newsletterForm.addEventListener(
+    "submit",
+    function(e){
+
+        e.preventDefault();
+
+
+        const button =
+        this.querySelector("button");
+
+
+        const input =
+        this.querySelector("input");
+
+
+        button.innerHTML =
+        '<i class="fa-solid fa-check"></i> تم الاشتراك';
+
+
+        input.value = "";
+
+
+        setTimeout(()=>{
+
+            button.innerHTML =
+            "اشتراك";
+
+        },2000);
+
+    }
+);
+
+
+
+/* =====================================================
+   SEARCH BUTTON
+===================================================== */
+
+const searchButton =
+document.querySelector(
+    ".fa-magnifying-glass"
+);
+
+
+searchButton
+.parentElement
+.addEventListener("click",()=>{
+
+    const search =
+    prompt("ابحث عن المنتج:");
+
+    if(search){
+
+        alert(
+            "سيتم البحث عن: " +
+            search
+        );
+
+    }
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>
